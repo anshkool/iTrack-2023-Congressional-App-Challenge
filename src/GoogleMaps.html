@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: left;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #007BFF;
+            text-align: left;
+            margin: 0;
+            padding: 10px 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container-side {
+
+            display: flex; /* Display the containers side by side */
+            justify-content: space-between; /* Add space between the containers */
+        }
+
+        .input-container {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        label {
+            margin-right: 10px;
+            min-width: 100px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #map {
+            height: 400px;
+            width: 100%;
+            margin: 20px 0;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+
+        #timeInput {
+            margin: 10px;
+        }
+
+        .side-by-side {
+            display: flex;
+            align-items: center;
+            margin-bottom: -20px;
+        }
+
+        #duration,
+        #newTime {
+            margin-right: 20px;
+        }
+
+        .top-right-container {
+            text-align: right;
+            padding: 10px;
+        }
+
+        #timeConflict {
+            display: inline-block;
+        }
+
+        .div-side {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .conatiner-50{
+            width: 50%;
+        }
+    </style>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDANszRpwoeRAhQgdtHptQz6ZM6k7eDoQM"></script>
+    <script src="script.js"></script>
+    <script>
+        function getDirections() {
+            showPosition();
+            storeTime();
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class = "div-side">
+        <div class="conatiner-50">
+            <h1>iTrack</h1>
+
+            <div class="input-container">
+                <label for="startInput">From:</label>
+                <input type="text" id="startInput">
+            </div>
+
+            <div class="input-container">
+                <label for="destinationInput">To:</label>
+                <input type="text" id="destinationInput">
+            </div>
+
+            <div class="input-container">
+                <label for="timeInput">Expected time of arrival:</label>
+                <input type="time" id="timeInput">
+            </div>
+
+            <button onclick="showPosition()">Get Directions</button>
+
+            <div class="side-by-side">
+                <div id="duration"></div>
+                <p id="newTime"></p>
+            </div>
+        </div>
+
+        <div class="conatiner-50">
+            <p id="timeConflict"></p>
+            <div id="rerouteButton" style="visibility: hidden;">
+                <button id="rerouteBtn" onclick="confirmReroute()">Re-route</button>
+            </div>
+            <p id="successMessage"></p>
+        </div>
+        
+
+    </div>
+
+        <div id="map" style="height: 350px; width: 90%;" class="center"></div>
+
+
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDANszRpwoeRAhQgdtHptQz6ZM6k7eDoQM"></script>
+    
+
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <h1>Train Route Detector</h1>
+
+    <button onclick="showPosition()">Get Location</button>
+
+    <div id="map" style="height: 400px; width: 100%;"></div>
+
+    <div id="duration"></div>
+    <div id="trainDuration"></div>
+
+    <input type="time" id="timeInput">
+
+    <button onclick="storeTime()">Store Time</button>
+
+    <p id="newTime"></p>
+    <p id="timeConflict"></p>
+
+    <button onclick="reroute()">Reroute</button>
+
+</body>
+</html> -->
